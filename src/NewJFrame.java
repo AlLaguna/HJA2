@@ -68,7 +68,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_sliderStateChanged
 
     private void botonRangosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonRangosMouseClicked
-        // TODO add your handling code here:
+        parser(inputRangos.getText());
     }//GEN-LAST:event_botonRangosMouseClicked
 
     /**
@@ -133,6 +133,81 @@ public class NewJFrame extends javax.swing.JFrame {
         SELECCION - AMRILLO
     */
     
+    /*
+        1. Separar por comas
+        2. Buscar operador
+            Si lo hay: se trata
+            Sino: se pinta
+    
+        Si hay +:
+            Pareja: Desde la pareja hasta el 00
+    
+            No pareja:
+                Carta alta no se mueve (1era)
+                Carta baja: desde carta baja - cartaAlta+1
+            suited: va a la derecha
+            offsuited: va para abajo
+   
+        Si hay -:
+            desde el 1er rango 
+            desde rango baja - cartaAlta+1 -- hasta final o encontrear el rango superior | excluyendo parejas
+    */
+    
+    public void parser(String rango)
+    {
+        String[] partes = rango.split(",");
+        
+        for(int i = 0; i < partes.length;i++) //Por cada rango
+        {
+            if(partes[i].contains("+"))
+            {
+                rangoMas(partes[i]);
+            }
+            else if(partes[i].contains("-"))
+            {
+                
+            }
+            else
+            {
+                rangoParejas(partes[i]);
+            }
+        }
+    }
+    
+    
+    public int traductor(char carta)
+    {
+        switch (carta) {
+            case 'A':
+                return 0;
+            case 'K':
+                return 1;
+            case 'Q':
+                return 2;
+            case 'J':
+                return 3;
+            case 'T':
+                return 4;
+            case '9':
+                return 5;
+            case '8':
+                return 6;
+            case '7':
+                return 7;
+            case '6':
+                return 8;
+            case '5':
+                return 9;
+            case '4':
+                return 10;
+            case '3':
+                return 11; 
+            case '2':
+                return 12;
+        }
+        return 0;
+    }
+    
     
     public void setupGUI()
     {
@@ -195,4 +270,62 @@ public class NewJFrame extends javax.swing.JFrame {
         JLabel etiqueta = (JLabel)evt.getComponent();
         //etiqueta.setText("a");
     }   
+
+    private void rangoParejas(String rango) 
+    {
+        int valor = traductor(rango.charAt(0));
+        
+        cuadricula[valor][valor].setBackground(Color.red);
+        for(int i = valor-1; i >= 0; i--)
+        {
+            cuadricula[i][i].setBackground(Color.red);
+        }
+    }
+
+    /*
+    Si hay +:
+            Pareja: Desde la pareja hasta el 00
+    
+            No pareja:
+                Carta alta no se mueve (1era)
+                Carta baja: desde carta baja - cartaAlta+1
+            suited: va a la derecha
+            offsuited: va para abajo
+    */
+    private void rangoMas(String rango) 
+    {
+        if (rango.charAt(0) == rango.charAt(1)) //Pareja
+        {
+            rangoParejas(rango.substring(0, 1));
+        } 
+        else 
+        {
+            if(rango.contains("o"))
+            {
+                int columna = traductor(rango.charAt(0)); 
+                int fila = traductor(rango.charAt(1)); 
+
+                int i = fila;
+                while(i >= 0 && columna !=i)
+                {
+                    cuadricula[columna][i].setBackground(Color.red);
+                    i--;
+                }
+            }
+            else //s
+            {
+                int fila = traductor(rango.charAt(0)); 
+                int columna = traductor(rango.charAt(1)); 
+
+                int i = columna;
+                while(i >= 0 && fila !=i)
+                {
+                    cuadricula[i][fila].setBackground(Color.red);
+                    i--;
+                }
+            }
+                
+        }
+    }
+
 }
