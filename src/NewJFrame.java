@@ -58,6 +58,11 @@ public class NewJFrame extends javax.swing.JFrame {
                 botonRangosMouseClicked(evt);
             }
         });
+        botonRangos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRangosActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonRangos, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 670, 103, 39));
 
         pack();
@@ -70,6 +75,10 @@ public class NewJFrame extends javax.swing.JFrame {
     private void botonRangosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonRangosMouseClicked
         parser(inputRangos.getText());
     }//GEN-LAST:event_botonRangosMouseClicked
+
+    private void botonRangosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRangosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonRangosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,7 +162,7 @@ public class NewJFrame extends javax.swing.JFrame {
             desde rango baja - cartaAlta+1 -- hasta final o encontrear el rango superior | excluyendo parejas
     */
     
-    public void parser(String rango)
+    public void parse(String rango)
     {
         String[] partes = rango.split(",");
         
@@ -165,7 +174,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
             else if(partes[i].contains("-"))
             {
-                
+                rangoMenos(partes[i]);
             }
             else
             {
@@ -238,14 +247,17 @@ public class NewJFrame extends javax.swing.JFrame {
                 if(columna > fila )
                 {
                     cuadricula[fila][columna] = new JLabel(cartas[fila]+cartas[columna] + "o", SwingConstants.CENTER);
+                    cuadricula[fila][columna].setBackground(Color.GRAY);
                 }
                 else if (columna == fila)
                 {
                     cuadricula[fila][columna] = new JLabel(cartas[fila]+cartas[columna], SwingConstants.CENTER);
+                    cuadricula[fila][columna].setBackground(Color.GREEN);
                 }
                 else
                 {
-                    cuadricula[fila][columna] = new JLabel(cartas[columna] + cartas[fila] + "s", SwingConstants.CENTER);        
+                    cuadricula[fila][columna] = new JLabel(cartas[columna] + cartas[fila] + "s", SwingConstants.CENTER);     
+                    cuadricula[fila][columna].setBackground(Color.RED);
                 }
                  
                  cuadricula[fila][columna].addMouseListener(new java.awt.event.MouseAdapter() 
@@ -255,7 +267,6 @@ public class NewJFrame extends javax.swing.JFrame {
                     }
                 });
                   cuadricula[fila][columna].setOpaque(true);
-                  cuadricula[fila][columna].setBackground(Color.WHITE);
                   cuadricula[fila][columna].setSize(TAMAÑO,TAMAÑO);
                   cuadricula[fila][columna].setBounds(SEPARACION * fila + OFFSET, SEPARACION * columna +OFFSET, cuadricula[fila][columna].size().width, cuadricula[fila][columna].size().height);
                   this.add(cuadricula[fila][columna]);
@@ -275,10 +286,10 @@ public class NewJFrame extends javax.swing.JFrame {
     {
         int valor = traductor(rango.charAt(0));
         
-        cuadricula[valor][valor].setBackground(Color.red);
+        cuadricula[valor][valor].setBackground(Color.YELLOW);
         for(int i = valor-1; i >= 0; i--)
         {
-            cuadricula[i][i].setBackground(Color.red);
+            cuadricula[i][i].setBackground(Color.YELLOW);
         }
     }
 
@@ -308,7 +319,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 int i = fila;
                 while(i >= 0 && columna !=i)
                 {
-                    cuadricula[columna][i].setBackground(Color.red);
+                    cuadricula[columna][i].setBackground(Color.YELLOW);
                     i--;
                 }
             }
@@ -320,11 +331,46 @@ public class NewJFrame extends javax.swing.JFrame {
                 int i = columna;
                 while(i >= 0 && fila !=i)
                 {
-                    cuadricula[i][fila].setBackground(Color.red);
+                    cuadricula[i][fila].setBackground(Color.YELLOW);
                     i--;
                 }
             }
                 
+        }
+    }
+    
+    private void rangoMenos(String rango) {
+        if (rango.charAt(0) == rango.charAt(1)) //Pareja
+        {
+            rangoParejas(rango.substring(0, 1));
+        } 
+        else {
+            if(rango.contains("o"))
+            {
+                int columna = traductor(rango.charAt(4)); 
+                int fila = traductor(rango.charAt(5)); 
+                int limSup = traductor(rango.charAt(1)); 
+                
+                int i = fila;
+                while(i >= 0 && limSup !=i)
+                {
+                    cuadricula[columna][i].setBackground(Color.YELLOW);
+                    i--;
+                }
+            }
+            else //s
+            {
+                int fila = traductor(rango.charAt(4)); 
+                int columna = traductor(rango.charAt(5)); 
+                int limSup = traductor(rango.charAt(1));
+
+                int i = columna;
+                while(i >= 0 && limSup !=i)
+                {
+                    cuadricula[i][fila].setBackground(Color.YELLOW);
+                    i--;
+                }
+            }
         }
     }
 
