@@ -159,7 +159,7 @@ public class NewJFrame extends javax.swing.JFrame {
    
         Si hay -:
             desde el 1er rango 
-            desde rango baja - cartaAlta+1 -- hasta final o encontrear el rango superior | excluyendo parejas
+            desde rango baja - cartaAlta+1 -- hasta final o encontrear el rango superior | excluyendo parejas !!!!!!!!!!!!!!!!!!!
     */
     
     public void parse(String rango)
