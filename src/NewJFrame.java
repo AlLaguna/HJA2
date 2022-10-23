@@ -2,6 +2,7 @@
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.TextField;
+import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -38,8 +39,14 @@ public class NewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jSlider1 = new javax.swing.JSlider();
+        jButton1 = new javax.swing.JButton();
         slider = new javax.swing.JSlider();
         botonRangos = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        inputMesa = new javax.swing.JTextField();
+        submitMesa = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(45, 45));
@@ -65,20 +72,51 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         getContentPane().add(botonRangos, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 670, 103, 39));
 
+        jButton2.setText("Clear");
+        jButton2.setActionCommand("clearbutton");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 670, 80, 40));
+
+        inputMesa.setActionCommand("inputMesa");
+        getContentPane().add(inputMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 670, 250, 30));
+
+        submitMesa.setText("Submit");
+        submitMesa.setActionCommand("botonMesa");
+        submitMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitMesaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(submitMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 670, -1, 30));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderStateChanged
         textoPorcentaje.setText(String.valueOf(slider.getValue() + "%"));
+        clear();
+        calcularRanking(slider.getValue());
     }//GEN-LAST:event_sliderStateChanged
 
     private void botonRangosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonRangosMouseClicked
-        parser(inputRangos.getText());
+        parse(inputRangos.getText());
     }//GEN-LAST:event_botonRangosMouseClicked
 
     private void botonRangosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRangosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonRangosActionPerformed
+
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+        clear();
+    }//GEN-LAST:event_clearActionPerformed
+
+    private void submitMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitMesaActionPerformed
+        procesarInputMano();
+    }//GEN-LAST:event_submitMesaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,8 +155,12 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRangos;
+    private javax.swing.JTextField inputMesa;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider slider;
+    private javax.swing.JButton submitMesa;
     // End of variables declaration//GEN-END:variables
 
 
@@ -127,13 +169,23 @@ public class NewJFrame extends javax.swing.JFrame {
     private static final int OFFSET = 10;
     private static final int TAMAÑO = 45;
     public static JLabel[][] cuadricula = new JLabel[LADO][LADO];
+    
+    public static JLabel[][] mesa = new JLabel[13][4];
     //public static JFrame this = new JFrame("Prueba JFrame");
     public static TextField inputRangos = new TextField(100);
     //public static JButton botonRangos = new JButton("Evaluar");
     //public static JSlider porcentaje = new JSlider();
     public static JLabel textoPorcentaje = new JLabel();
     
-    private static String[] cartas =  {"A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"};
+    private static final String[] cartas =  {"A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"};
+    private static final String[] palos = {"h", "c", "d", "s"};
+    
+    private String[] seleccionMesa = new String[52];
+    int indiceMesa = 0;
+    
+    private String[] seleccionCombos = new String[169];
+    int indiceSeleccion = 0;
+    private static String [] ranking = {"AA","KK","AKs","QQ","AKo","JJ","AQs","TT","AQo","99","AJs","88","ATs","AJo","77","66","ATo","A9s","55","A8s","KQs","44","A9o","A7s","KJs","A5s","A8o","A6s","A4s","33","KTs","A7o","A3s","KQo","A2s","A5o","A6o","A4o","KJo","QJs","A3o","22","K9s","A2o","KTo","QTs","K8s","K7s","JTs","K9o","K6s","QJo","Q9s","K5s","K8o","K4s","QTo","K7o","K3s","K2s","Q8s","K6o","J9s","K5o","Q9o","JTo","K4o","Q7s","T9s","Q6s","K3o","J8s","Q5s","K2o","Q8o","Q4s","J9o","Q3s","T8s","J7s","Q7o","Q2s","Q6o","98s","Q5o","J8o","T9o","J6s","T7s","J5s","Q4o","J4s","J7o","Q3o","97s","T8o","J3s","T6s","Q2o","J2s","87s","J6o","98o","T7o","96s","J5o","T5s","T4s","86s","J4o","T6o","97o","T3s","76s","95s","J3o","T2s","87o","85s","96o","T5o","J2o","75s","94s","T4o","65s","86o","93s","84s","95o","T3o","76o","92s","74s","54s","T2o","85o","64s","83s","94o","75o","82s","73s","93o","65o","53s","63s","84o","92o","43s","74o","72s","54o","64o","52s","62s","83o","42s","82o","73o","53o","63o","32s","43o","72o","52o","62o","42o","32o"};
     /*
     
         if(fila = columna) NADA/PAREJAS -VERDE
@@ -162,27 +214,73 @@ public class NewJFrame extends javax.swing.JFrame {
             desde rango baja - cartaAlta+1 -- hasta final o encontrear el rango superior | excluyendo parejas !!!!!!!!!!!!!!!!!!!
     */
     
-    public void parse(String rango)
+    public void calcularRanking(int porcentaje)
     {
-        String[] partes = rango.split(",");
+        int cartas = 169*porcentaje/100;
         
-        for(int i = 0; i < partes.length;i++) //Por cada rango
+        for(int i = 0; i < cartas; i++)
         {
-            if(partes[i].contains("+"))
+            //AA
+            int columna;
+            int fila;
+            
+            if(ranking[i].contains("s"))
             {
-                rangoMas(partes[i]);
+                columna = traductor(ranking[i].charAt(0)); 
+                fila = traductor(ranking[i].charAt(1)); 
             }
-            else if(partes[i].contains("-"))
+            else if (ranking[i].contains("o"))
             {
-                rangoMenos(partes[i]);
+                fila = traductor(ranking[i].charAt(0)); 
+                columna = traductor(ranking[i].charAt(1));     
             }
-            else
+            else //PAREJA
             {
-                rangoParejas(partes[i]);
+               fila = traductor(ranking[i].charAt(0)); 
+               columna = fila;
             }
+            
+            cuadricula[fila][columna].setBackground(Color.PINK);
+        
         }
     }
     
+    public void parse(String rango)
+    {
+        if (!rango.isEmpty()) 
+        {
+            String[] partes = rango.split(",");
+
+            for (int i = 0; i < partes.length; i++) //Por cada rango
+            {
+                if (partes[i].contains("+")) {
+                    rangoMas(partes[i]);
+                } else if (partes[i].contains("-")) {
+                    rangoMenos(partes[i]);
+                } else {
+                    int valor = traductor(rango.charAt(0));
+        
+                    cuadricula[valor][valor].setBackground(Color.YELLOW);
+                }
+            }
+        }  
+    }
+
+    public int traductorPalos(char palo)
+    {
+        switch(palo)
+        {
+            case 'h':
+                return 0;
+            case 'c':
+                return 1;
+            case 'd':
+                return 2;
+            case 's':
+                return 3;
+        }
+        return 0;
+    }
     
     public int traductor(char carta)
     {
@@ -217,6 +315,42 @@ public class NewJFrame extends javax.swing.JFrame {
         return 0;
     }
     
+    public void clear()
+    {
+        
+        for(int fila = 0; fila < LADO;fila++)
+        {
+            for(int columna = 0; columna < LADO; columna++)
+            {
+                if(columna > fila )
+                {
+                    cuadricula[fila][columna].setBackground(Color.GRAY);
+                }
+                else if (columna == fila)
+                {
+                    cuadricula[fila][columna].setBackground(Color.GREEN);
+                }
+                else
+                {  
+                    cuadricula[fila][columna].setBackground(Color.RED);
+                }
+            }
+        }
+        seleccionCombos = new String[169];
+        indiceSeleccion = 0;
+        seleccionMesa = new String[52];
+        indiceMesa = 0;
+        inputRangos.setText("");
+        inputMesa.setText("");
+        
+         for(int i = 0; i < 13; i++)
+        {
+            for(int j = 0; j < 4; j++)
+            {
+                mesa[i][j].setBackground(Color.white);
+            }
+        }
+    }
     
     public void setupGUI()
     {
@@ -272,13 +406,48 @@ public class NewJFrame extends javax.swing.JFrame {
                   this.add(cuadricula[fila][columna]);
             }
         }
+        
+        
+        for(int i = 0; i < 13; i++)
+        {
+            for(int j = 0; j < 4; j++)
+            {
+                mesa[i][j] = new JLabel(cartas[i] + palos[j], SwingConstants.CENTER);    
+                mesa[i][j].setOpaque(true);
+                mesa[i][j].setSize(TAMAÑO,TAMAÑO);
+                mesa[i][j].setBounds(SEPARACION * j + OFFSET*75, SEPARACION * i +OFFSET, mesa[i][j].size().width, mesa[i][j].size().height);
+                mesa[i][j].setBackground(Color.white);
+                
+                mesa[i][j].addMouseListener(new java.awt.event.MouseAdapter() 
+                 {
+                     public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        clickMesa(evt);
+                    }  
+                });
+                
+                this.add(mesa[i][j]);
+            }
+        }
 
         this.setVisible(true);
     }
     
+     private void clickMesa(MouseEvent evt) 
+     {
+         JLabel etiqueta = (JLabel)evt.getComponent();
+        
+        etiqueta.setBackground(Color.cyan);
+        seleccionMesa[indiceMesa] = etiqueta.getText();
+        indiceMesa++;
+     }
+     
     private void clickEtiqueta(java.awt.event.MouseEvent evt) 
     {                                    
         JLabel etiqueta = (JLabel)evt.getComponent();
+        
+        etiqueta.setBackground(Color.cyan);
+        seleccionCombos[indiceSeleccion] = etiqueta.getText();
+        indiceSeleccion++;
         //etiqueta.setText("a");
     }   
 
@@ -352,7 +521,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 int limSup = traductor(rango.charAt(1)); 
                 
                 int i = fila;
-                while(i >= 0 && limSup !=i)
+                while(i >= 0 && limSup !=i+1)
                 {
                     cuadricula[columna][i].setBackground(Color.YELLOW);
                     i--;
@@ -365,12 +534,26 @@ public class NewJFrame extends javax.swing.JFrame {
                 int limSup = traductor(rango.charAt(1));
 
                 int i = columna;
-                while(i >= 0 && limSup !=i)
+                while(i >= 0 && limSup !=i+1)
                 {
                     cuadricula[i][fila].setBackground(Color.YELLOW);
                     i--;
                 }
             }
+        }
+    }
+
+    private void procesarInputMano()  
+    {
+        String stringMano = inputMesa.getText();
+        String cartas[] = stringMano.split(",");
+        
+        for(int i = 0; i < cartas.length; i++)
+        {
+            seleccionMesa[indiceMesa] = cartas[i];
+            indiceMesa++;
+            
+            mesa[traductor(cartas[i].charAt(0))][traductorPalos(cartas[i].charAt(1))].setBackground(Color.cyan);
         }
     }
 
