@@ -3,7 +3,7 @@ public class Carta implements Comparable<Carta>{
 
 	private int valor;
 	private char palo;
-        private boolean isMesa;
+        public boolean isMesa;
         private int posicion;
 	
 	/*Carta(String cartaString, boolean isMesa, int posicion) {

@@ -13,7 +13,7 @@ public class Mano implements Comparable<Mano>
     
     //Indica la posicion donde empieza la jugada (Escaleras y color siempre empiezan en 0 dado que son las 5 cartas)
     //Se utiliza para mostras las jugadas
-    private int posicionesJugadas[] = {-1,-1,-1,-1,0,0,-1,-1,0,0};
+    public int posicionesJugadas[] = {-1,-1,-1,-1,0,0,-1,-1,0,0};
     
     private boolean puedeColor = false;
     
@@ -36,12 +36,15 @@ public class Mano implements Comparable<Mano>
         {
             this.mano[i] = new Carta(cartas.substring(i*2, i*2+2));
         }
+        
+        this.ordenar();
     }
     
     Mano(Carta[] cartas, int numCartas)
     {
         this.numCartas = numCartas;
         this.mano = Arrays.copyOf(cartas, numCartas);
+        this.ordenar();
     }
     
     public void ordenar()
@@ -70,14 +73,116 @@ public class Mano implements Comparable<Mano>
     
     public void mejorJugada() {
     	for(int i = getArrayJugadas().length - 1; i >= 0 ; i--) {
-        	if(getArrayJugadas()[i] > 0) {
+        	if(getArrayJugadas()[i] > 0 && noSeaMesa(i)) {
         		jugada = i;
         		break;
         	}
         }
     }  
+    
+    public boolean noSeaMesa(int jugada)
+    {
+        
+         //                   0       1        2       3       4       5      6      7           8           9
+         //ARRAYJUGADAS: CartaAlta, Pareja, 2parejas, Trio, Escalera, Color, Full, Poker, EscaleraColor, EscaleraReal
+        switch (jugada) {
+            case 0:
+                /*if(this.mano[posicionesJugadas[0]].isMesa) return false;
+                else return true;*/
+                return true;
+            case 1:
+                if(this.mano[posicionesJugadas[1]].isMesa && this.mano[posicionesJugadas[1]+1].isMesa) return false;
+                else return true;
+            case 2:
+               /*if((this.mano[posicionesJugadas[2]].isMesa && this.mano[posicionesJugadas[2]+1].isMesa) || (this.mano[posicionesJugadas[2]+2].isMesa && this.mano[posicionesJugadas[2]+3].isMesa)) return false;
+                else return true;*/
+                int contador = 0;
+                if(this.mano[posicionesJugadas[2]].isMesa && this.mano[posicionesJugadas[2]+1].isMesa)
+                {
+                    contador++;
+                }
+                if(this.mano[posicionesJugadas[2]+2].isMesa && this.mano[posicionesJugadas[2]+3].isMesa)
+                {
+                    contador++;
+                }
+                
+                if(contador == 1)
+                {
+                    getArrayJugadas()[1]++;
+                    return false;
+                }
+                else if (contador == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                      
+                
+            case 3:
+                int cnt = 0;
+                for(int i = posicionesJugadas[3]; i < posicionesJugadas[3]+3; i++)
+                {
+                    if(this.mano[i].isMesa) cnt++;
+                }
+                if(cnt==3) return false;
+                else return true;
+            case 4:
+                int cnt1 = 0;
+                for(int i = posicionesJugadas[4]; i < posicionesJugadas[4]+5; i++)
+                {
+                    if(this.mano[i].isMesa) cnt1++;
+                }
+                if(cnt1==5) return false;
+                else return true;
+            case 5:
+                int cnt2 = 0;
+                for(int i = posicionesJugadas[5]; i < posicionesJugadas[5]+5; i++)
+                {
+                    if(this.mano[i].isMesa) cnt2++;
+                }
+                if(cnt2==5) return false;
+                else return true;
+            case 6:
+                int cnt3 = 0;
+                for(int i = posicionesJugadas[6]; i < posicionesJugadas[6]+5; i++)
+                {
+                    if(this.mano[i].isMesa) cnt3++;
+                }
+                if(cnt3==5) return false;
+                else return true;
+            case 7:
+                int cnt4 = 0;
+                for(int i = posicionesJugadas[7]; i < posicionesJugadas[7]+4; i++)
+                {
+                    if(this.mano[i].isMesa) cnt4++;
+                }
+                if(cnt4==4) return false;
+                else return true;
+            case 8:
+                int cnt5 = 0;
+                for(int i = posicionesJugadas[8]; i < posicionesJugadas[8]+5; i++)
+                {
+                    if(this.mano[i].isMesa) cnt5++;
+                }
+                if(cnt5==5) return false;
+                else return true;
+            case 9:
+                 int cnt6 = 0;
+                for(int i = posicionesJugadas[9]; i < posicionesJugadas[9]+5; i++)
+                {
+                    if(this.mano[i].isMesa) cnt6++;
+                }
+                if(cnt6==5) return false;
+                else return true;
+            default:
+                return true;
+        }
+    }
 
-	public int compareTo(Mano otraMano)
+    public int compareTo(Mano otraMano)
     {
             if(this.jugada > otraMano.jugada) {
             	return -1;
@@ -109,7 +214,7 @@ public class Mano implements Comparable<Mano>
 	    //ARRAYCARTAS:       0,0,2,3,4,5,6,7,8,9,T,J,Q,K,A(14) //HAY UN DESFASE DE 2 POSICIONES VALOR-POSICION ARRAY (2 '0's delante) 
 	    int arrayCartas[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	    
-	    
+	    int cartasMesa[] = {0,0,0,0,0,0,0,0,0,0};
 	    
 	    //CARTA ALTA SE COGE AL FINAL
 	    boolean isCartaEmparejada[] = new boolean[this.numCartas];
@@ -141,20 +246,14 @@ public class Mano implements Comparable<Mano>
 	        
 	        if(arrayCartas[this.mano[i].getValor()] == 2) //Pareja
 	        {
-	            getArrayJugadas()[1]++;
-	            
+	            getArrayJugadas()[1]++;	            
                     
                     if (getArrayJugadas()[2] == 2) //Y no hay trio ==> FULL
                     {    
                         if(i < this.numCartas - 1 && this.mano[i+1].getValor() != this.mano[i].getValor())
                         {
                             getArrayJugadas()[2] = getArrayJugadas()[2] - 2;
-                            getArrayJugadas()[3]++;
-
-                            /*if (this.mano[i].getValor() <= valorJugadas[2]) {
-                                valorJugadas[3] = valorJugadas[2];
-                                valorJugadas[2] = this.mano[i].getValor();
-                            }*/
+                            getArrayJugadas()[3]++;                       
                         }
 	    	    }
 	    	    else
@@ -163,6 +262,9 @@ public class Mano implements Comparable<Mano>
 	    	    	//valorJugadas[2] = this.mano[i].getValor();
 	    	    }
 	            
+                    if(posicionesJugadas[1] == -1){
+                        posicionesJugadas[1] = i-1;
+                    }
 	            isCartaEmparejada[i] = true;
 	            isCartaEmparejada[i-1] = true;
 	            
@@ -176,7 +278,7 @@ public class Mano implements Comparable<Mano>
 	            
 	            //Se elimina la pareja anterior
 	            getArrayJugadas()[1]--;
-	            posicionesJugadas[1] = -1;
+	            //posicionesJugadas[1] = -1;
 	
 	        }
 	        else if(arrayCartas[this.mano[i].getValor()] == 4) //Poker
@@ -188,7 +290,7 @@ public class Mano implements Comparable<Mano>
 	            
 	            //Se elimina el trio anterior
 	            getArrayJugadas()[3]--;
-	            posicionesJugadas[3] = -1;
+	            //posicionesJugadas[3] = -1;
 	        }
 	                 
 	        //Comprobar escalera
@@ -286,8 +388,9 @@ public class Mano implements Comparable<Mano>
 	        getArrayJugadas()[1] = getArrayJugadas()[1] - 2;
 	        getArrayJugadas()[2]++;
 	        
+                
 	        posicionesJugadas[2] = posicionesJugadas[1];
-	        posicionesJugadas[1] = -1;
+	        //posicionesJugadas[1] = -1;
 	    }
 	
 	    //Si hay pareja + trio ==> 1 full
@@ -297,9 +400,14 @@ public class Mano implements Comparable<Mano>
 	        getArrayJugadas()[3]--;
 	        getArrayJugadas()[6]++;
 	        
-	        posicionesJugadas[6] = posicionesJugadas[1];
-	        posicionesJugadas[1] = -1;
-	        posicionesJugadas[3] = -1;
+                if( posicionesJugadas[1] <  posicionesJugadas[3]){
+	        posicionesJugadas[6] = posicionesJugadas[1];}
+                else
+                {
+                    posicionesJugadas[6] = posicionesJugadas[3];
+                }
+	        //posicionesJugadas[1] = -1;
+	        //posicionesJugadas[3] = -1;
 	    }
 	
 	    /*if (puedeColor) 
@@ -341,7 +449,7 @@ public class Mano implements Comparable<Mano>
 	    }
 	    
 	    //Conseguir carta más alta no emparejada
-	    int i = this.numCartas-1;
+	    /*int i = this.numCartas-1;
 	    while(i>=0 && posicionesJugadas[0] == -1)
 	    {
 	         if(!isCartaEmparejada[i])
@@ -350,41 +458,13 @@ public class Mano implements Comparable<Mano>
 	             posicionesJugadas[0] = i;
 	         }
 	         i--;
-	    }
+	    }*/
+            
+            //                   0       1        2       3       4       5      6      7           8           9
+         //ARRAYJUGADAS: CartaAlta, Pareja, 2parejas, Trio, Escalera, Color, Full, Poker, EscaleraColor, EscaleraReal
+            if(getArrayJugadas()[4] <= 0||getArrayJugadas()[8] <= 0 || getArrayJugadas()[9] <= 0 || getArrayJugadas()[5] <= 0) getArrayJugadas()[0]++;
 	
-	    /*
-	        ARRAYJUGADAS: CA,Parej,2parej,Trio,Esc,Color,Full,Poker,EscColor,EscReal
-	    
-	        for(numCartas)
-	        {
-	            arrayCartas[this.mano[i].valor]++
-	    
-	            if(arrayCartas[this.mano[i].valor] == 2) //Pareja
-	            else if(arrayCartas[this.mano[i].valor] == 3) //Trio (quitar pareja)
-	            else if(arrayCartas[this.mano[i].valor] == 4) //Poker (quitar trio)
-	    
-	    
-	            //Contador con el numero de cartas de un coclor --> comprueba si hay color
-	            //Mirar orden ascendente ---> comprueba si hay escalera
-	
-	            //Variable con la carta más alta que sobra (se usará en caso de empate) [CREAR ARRAY DE CARTAS SOBRANTES?????]
-	        
-	            //Proyecto de escalera: (buscar huecos de 1 carta)
-	        }
-	    
-	        if(arrayJugadas[1] == 2) //2 PAREJAS == 1 2Parej
-	        if( (arrayJugadas[1] == 1 %% arrayJugadas[3] == 1) || (arrayJugadas[2] == 1 %% arrayJugadas[3] == 1) ) //Parejas o doble pareja + trio == FULL **OJO con la 2Parej
-	    
-	    
-	
-	        //PARA ESCALERAS:
-	            - Comprobar valor ascendente en la mano (arrayJugadas)
-	            - Comprobar si hay color (en arrayJugadas)
-	            - Comprobar si la carta más baja es un 10 (la1era de la mano) --> escalera real
-	    
-	        //VECTOR AUXILIAR DE JUGADAS PARA COMPARALAS: ALMACENAR POSICION
-	            - Guarda la info de la posición de la primera carta de la jugada
-	    */
+	   
 	}
 
 	public String jugadaToString(int pos) {
