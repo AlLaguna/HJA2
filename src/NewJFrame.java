@@ -601,6 +601,24 @@ public class NewJFrame extends javax.swing.JFrame {
                 mesa[i][j].setBackground(Color.white);
             }
         }
+         
+         royalFlush.setText("0");
+        straightFlush.setText("0");
+        poker.setText("0");
+        full.setText("0");
+        flush.setText("0");
+        straight.setText("0");
+        trio.setText("0");
+        twoPair.setText("0");
+        pair.setText("0");
+        cA.setText("0");
+        
+        int[] arrayVacio = {0,0,0,0,0,0,0,0,0,0};
+        totalJugadas = Arrays.copyOf(arrayVacio, arrayVacio.length);
+        jugadasMesa = Arrays.copyOf(arrayVacio, arrayVacio.length);
+        totalCombos.setText("0");
+        numCombos = 0;
+
     }
     
     public void calcularNumCombos()
@@ -634,14 +652,7 @@ public class NewJFrame extends javax.swing.JFrame {
         }
         
         Carta[] manoRangos = new Carta[2];
-        
-        /*
-                AK -  2cartas
-        
-        */
-        
-        
-        
+  
         for(int i = 0; i < indiceSeleccion; i++)
         {
            
@@ -670,7 +681,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                     indiceManoRangos--;
                                 }
                                 
-                                if(manoRangos[1].getValor() == manoMesa[l].getValor() && manoRangos[01].getPalo() == manoMesa[l].getPalo())
+                                if(manoRangos[1].getValor() == manoMesa[l].getValor() && manoRangos[1].getPalo() == manoMesa[l].getPalo())
                                 {
                                     ok1 = false;
                                     indiceManoRangos--;
@@ -876,7 +887,7 @@ public class NewJFrame extends javax.swing.JFrame {
         for(int i = valor-1; i >= 0; i--)
         {
             cuadricula[i][i].setBackground(Color.YELLOW);
-            seleccionCombos[indiceSeleccion] = cuadricula[valor][valor].getText();
+            seleccionCombos[indiceSeleccion] = cuadricula[i][i].getText();
             indiceSeleccion++;
         }
     }
