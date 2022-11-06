@@ -60,7 +60,24 @@ public class NewJFrame extends javax.swing.JFrame {
         label11 = new java.awt.Label();
         label12 = new java.awt.Label();
         label13 = new java.awt.Label();
-        label14 = new java.awt.Label();
+        labelCA = new java.awt.Label();
+        straightFlush = new java.awt.Label();
+        royalFlush = new java.awt.Label();
+        full = new java.awt.Label();
+        poker = new java.awt.Label();
+        straight = new java.awt.Label();
+        flush = new java.awt.Label();
+        twoPair = new java.awt.Label();
+        trio = new java.awt.Label();
+        none = new java.awt.Label();
+        pair = new java.awt.Label();
+        label25 = new java.awt.Label();
+        label26 = new java.awt.Label();
+        label27 = new java.awt.Label();
+        cA = new java.awt.Label();
+        label29 = new java.awt.Label();
+        totalCombos = new java.awt.Label();
+        botonCombos = new java.awt.Button();
 
         jButton1.setText("jButton1");
 
@@ -109,47 +126,134 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         getContentPane().add(submitMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 670, -1, 30));
 
+        label1.setBackground(new java.awt.Color(150, 242, 242));
         label1.setText("Straight flush");
         getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 60, 90, 30));
 
+        label2.setBackground(new java.awt.Color(150, 242, 242));
         label2.setText("Royal flush");
         getContentPane().add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 30, 90, 30));
 
+        label3.setBackground(new java.awt.Color(150, 242, 242));
         label3.setText("Full house");
         getContentPane().add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 120, 90, 30));
 
+        label4.setBackground(new java.awt.Color(150, 242, 242));
         label4.setText("4 of a kind");
         getContentPane().add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 90, 90, 30));
 
+        label5.setBackground(new java.awt.Color(150, 242, 242));
         label5.setText("Straight");
         getContentPane().add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 180, 90, 30));
 
+        label6.setBackground(new java.awt.Color(150, 242, 242));
         label6.setText("Flush");
         getContentPane().add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 150, 90, 30));
 
+        label7.setBackground(new java.awt.Color(150, 242, 242));
         label7.setText("2 pair");
-        getContentPane().add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 240, 90, -1));
+        getContentPane().add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 240, 90, 30));
 
+        label8.setBackground(new java.awt.Color(150, 242, 242));
         label8.setText("3 of a kind");
-        getContentPane().add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 210, 90, -1));
+        getContentPane().add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 210, 90, 30));
 
+        label9.setBackground(new java.awt.Color(150, 242, 242));
         label9.setText("No made hand");
-        getContentPane().add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 420, 90, -1));
+        getContentPane().add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 420, 90, 30));
 
-        label10.setText("Over pair");
-        getContentPane().add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 270, 90, -1));
+        label10.setBackground(new java.awt.Color(150, 242, 242));
+        label10.setText("(Over) pair");
+        getContentPane().add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 270, 90, 30));
 
+        label11.setBackground(new java.awt.Color(150, 242, 242));
         label11.setText("Weak pair");
-        getContentPane().add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 360, 90, -1));
+        getContentPane().add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 360, 90, 30));
 
+        label12.setBackground(new java.awt.Color(150, 242, 242));
         label12.setText("Top pair");
-        getContentPane().add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 300, 90, -1));
+        getContentPane().add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 300, 90, 30));
 
+        label13.setBackground(new java.awt.Color(150, 242, 242));
         label13.setText("Middle pair");
-        getContentPane().add(label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 330, 90, -1));
+        getContentPane().add(label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 330, 90, 30));
 
-        label14.setText("High card");
-        getContentPane().add(label14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 390, 90, -1));
+        labelCA.setBackground(new java.awt.Color(150, 242, 242));
+        labelCA.setText("High card");
+        getContentPane().add(labelCA, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 390, 90, 30));
+
+        straightFlush.setBackground(new java.awt.Color(242, 200, 242));
+        straightFlush.setText("0");
+        getContentPane().add(straightFlush, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 60, 40, 30));
+
+        royalFlush.setBackground(new java.awt.Color(242, 200, 242));
+        royalFlush.setText("0");
+        getContentPane().add(royalFlush, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 30, 40, 30));
+
+        full.setBackground(new java.awt.Color(242, 200, 242));
+        full.setText("0");
+        getContentPane().add(full, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 120, 40, 30));
+
+        poker.setBackground(new java.awt.Color(242, 200, 242));
+        poker.setText("0");
+        getContentPane().add(poker, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 90, 40, 30));
+
+        straight.setBackground(new java.awt.Color(242, 200, 242));
+        straight.setText("0");
+        getContentPane().add(straight, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 180, 40, 30));
+
+        flush.setBackground(new java.awt.Color(242, 200, 242));
+        flush.setText("0");
+        getContentPane().add(flush, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 150, 40, 30));
+
+        twoPair.setBackground(new java.awt.Color(242, 200, 242));
+        twoPair.setText("0");
+        getContentPane().add(twoPair, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 240, 40, 30));
+
+        trio.setBackground(new java.awt.Color(242, 200, 242));
+        trio.setText("0");
+        getContentPane().add(trio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 210, 40, 30));
+
+        none.setBackground(new java.awt.Color(242, 200, 242));
+        none.setText("0");
+        getContentPane().add(none, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 420, 40, 30));
+
+        pair.setBackground(new java.awt.Color(242, 200, 242));
+        pair.setText("0");
+        getContentPane().add(pair, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 270, 40, 30));
+
+        label25.setBackground(new java.awt.Color(242, 200, 242));
+        label25.setText("0");
+        getContentPane().add(label25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 360, 40, 30));
+
+        label26.setBackground(new java.awt.Color(242, 200, 242));
+        label26.setText("0");
+        getContentPane().add(label26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 300, 40, 30));
+
+        label27.setBackground(new java.awt.Color(242, 200, 242));
+        label27.setText("0");
+        getContentPane().add(label27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 330, 40, 30));
+
+        cA.setBackground(new java.awt.Color(242, 200, 242));
+        cA.setText("0");
+        getContentPane().add(cA, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 390, 40, 30));
+
+        label29.setBackground(new java.awt.Color(150, 252, 252));
+        label29.setText("Total Combos");
+        getContentPane().add(label29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 470, 90, 30));
+
+        totalCombos.setBackground(new java.awt.Color(242, 120, 242));
+        totalCombos.setText("0");
+        getContentPane().add(totalCombos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 470, 40, 30));
+
+        botonCombos.setBackground(new java.awt.Color(220, 50, 50));
+        botonCombos.setLabel("Calcular Combos");
+        botonCombos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCombosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonCombos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 520, 140, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,6 +279,14 @@ public class NewJFrame extends javax.swing.JFrame {
     private void submitMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitMesaActionPerformed
         procesarInputMano();
     }//GEN-LAST:event_submitMesaActionPerformed
+
+    private void botonCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCombosActionPerformed
+        
+        calcularCombos();
+        
+        mostrarCombos();
+        calcularNumCombos();
+    }//GEN-LAST:event_botonCombosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,7 +324,11 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button botonCombos;
     private javax.swing.JButton botonRangos;
+    private java.awt.Label cA;
+    private java.awt.Label flush;
+    private java.awt.Label full;
     private javax.swing.JTextField inputMesa;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -222,8 +338,11 @@ public class NewJFrame extends javax.swing.JFrame {
     private java.awt.Label label11;
     private java.awt.Label label12;
     private java.awt.Label label13;
-    private java.awt.Label label14;
     private java.awt.Label label2;
+    private java.awt.Label label25;
+    private java.awt.Label label26;
+    private java.awt.Label label27;
+    private java.awt.Label label29;
     private java.awt.Label label3;
     private java.awt.Label label4;
     private java.awt.Label label5;
@@ -231,8 +350,18 @@ public class NewJFrame extends javax.swing.JFrame {
     private java.awt.Label label7;
     private java.awt.Label label8;
     private java.awt.Label label9;
+    private java.awt.Label labelCA;
+    private java.awt.Label none;
+    private java.awt.Label pair;
+    private java.awt.Label poker;
+    private java.awt.Label royalFlush;
     private javax.swing.JSlider slider;
+    private java.awt.Label straight;
+    private java.awt.Label straightFlush;
     private javax.swing.JButton submitMesa;
+    private java.awt.Label totalCombos;
+    private java.awt.Label trio;
+    private java.awt.Label twoPair;
     // End of variables declaration//GEN-END:variables
 
 
@@ -258,6 +387,9 @@ public class NewJFrame extends javax.swing.JFrame {
     private String[] seleccionCombos = new String[169];
     int indiceSeleccion = 0;
     private static String [] ranking = {"AA","KK","AKs","QQ","AKo","JJ","AQs","TT","AQo","99","AJs","88","ATs","AJo","77","66","ATo","A9s","55","A8s","KQs","44","A9o","A7s","KJs","A5s","A8o","A6s","A4s","33","KTs","A7o","A3s","KQo","A2s","A5o","A6o","A4o","KJo","QJs","A3o","22","K9s","A2o","KTo","QTs","K8s","K7s","JTs","K9o","K6s","QJo","Q9s","K5s","K8o","K4s","QTo","K7o","K3s","K2s","Q8s","K6o","J9s","K5o","Q9o","JTo","K4o","Q7s","T9s","Q6s","K3o","J8s","Q5s","K2o","Q8o","Q4s","J9o","Q3s","T8s","J7s","Q7o","Q2s","Q6o","98s","Q5o","J8o","T9o","J6s","T7s","J5s","Q4o","J4s","J7o","Q3o","97s","T8o","J3s","T6s","Q2o","J2s","87s","J6o","98o","T7o","96s","J5o","T5s","T4s","86s","J4o","T6o","97o","T3s","76s","95s","J3o","T2s","87o","85s","96o","T5o","J2o","75s","94s","T4o","65s","86o","93s","84s","95o","T3o","76o","92s","74s","54s","T2o","85o","64s","83s","94o","75o","82s","73s","93o","65o","53s","63s","84o","92o","43s","74o","72s","54o","64o","52s","62s","83o","42s","82o","73o","53o","63o","32s","43o","72o","52o","62o","42o","32o"};
+    
+    private int[] totalJugadas = {0,0,0,0,0,0,0,0,0,0};
+    private int[] jugadasMesa = {0,0,0,0,0,0,0,0,0,0};
     
     private int numCombos = 0;
     /*
@@ -287,6 +419,16 @@ public class NewJFrame extends javax.swing.JFrame {
             desde el 1er rango 
             desde rango baja - cartaAlta+1 -- hasta final o encontrear el rango superior | excluyendo parejas !!!!!!!!!!!!!!!!!!!
     */
+    
+    public void actualizarJugadas(int[] jugadas)
+    {
+        for(int i = 0; i < jugadas.length; i++)
+        {
+            this.totalJugadas[i] += jugadas[i];
+            if(i != 0){
+            this.totalJugadas[i] -= jugadasMesa[i];}
+        }
+    }
     
     public void calcularRanking(int porcentaje)
     {
@@ -428,12 +570,17 @@ public class NewJFrame extends javax.swing.JFrame {
     
     public void calcularNumCombos()
     {
+        for(int i = 0; i< this.totalJugadas.length; i++)
+        {
+            this.numCombos += this.totalJugadas[i];
+        }
+        totalCombos.setText(Integer.toString(this.numCombos));
         /*
             Parejas - 6 combos  -3
             Suited - 4 combos   -1
             OS  - 12 combos     -6
         */
-        for(int i = 0; i < indiceSeleccion; i++)
+        /*for(int i = 0; i < indiceSeleccion; i++)
         {
             if(seleccionCombos[i].contains("o"))
             {
@@ -448,6 +595,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 this.numCombos += 6;
             }
         }
+        
+        totalCombos.setText(Integer.toString(this.numCombos));
         
         for(int i = 0; i < indiceMesa; i++)
         {
@@ -470,16 +619,20 @@ public class NewJFrame extends javax.swing.JFrame {
                     break;
                 }
             }   
-        }
+        }*/
     }
     
-    public void mostrarCombos()
+    public void calcularCombos()
     {   
         Carta[] manoMesa = new Carta[indiceMesa];
         for(int i = 0; i < indiceMesa; i++)
         {
             manoMesa[i] = new Carta(seleccionMesa[i]);
         }
+        
+        Mano mesa = new Mano(manoMesa, indiceMesa); 
+        mesa.evaluarMano();
+        this.jugadasMesa = Arrays.copyOf(mesa.getArrayJugadas(), this.jugadasMesa.length);
         
         ////////////////////////////////////
         Arrays.sort(manoMesa);
@@ -496,6 +649,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 AK -  2cartas
         
         */
+        
+        
         
         for(int i = 0; i < indiceSeleccion; i++)
         {
@@ -571,7 +726,7 @@ public class NewJFrame extends javax.swing.JFrame {
             {
                 for(int j = 0; j < 4; j++) //Palos1
                 {
-                    for(int k = 0 ; k < 4; k++) //Palo2
+                    for(int k = j ; k < 4; k++) //Palo2
                     {
                         if(j == k) //Los palos son iguales
                         {
@@ -609,8 +764,15 @@ public class NewJFrame extends javax.swing.JFrame {
                                 {
                                     System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
                                     System.arraycopy(manoRangos, 0, manoJunta, indiceMesa, indiceManoRangos);  
+                                //Calcular
+                                Mano manoACalcular = new Mano(manoJunta, manoJunta.length);
+                                manoACalcular.evaluarMano();
+                                actualizarJugadas(manoACalcular.getArrayJugadas());
+                                
+                                System.out.println(manoACalcular.toString());
+                                System.out.println(manoACalcular.getArrayJugadas().toString());
                                 }
-                                else if(ok0)
+                                /*else if(ok0)
                                 {
                                     Carta[] carta0 = new Carta[1];
                                     carta0[0] = manoRangos[0];
@@ -630,6 +792,11 @@ public class NewJFrame extends javax.swing.JFrame {
                                 //Calcular
                                 Mano manoACalcular = new Mano(manoJunta, manoJunta.length);
                                 manoACalcular.evaluarMano();
+                                actualizarJugadas(manoACalcular.getArrayJugadas());
+                                
+                                System.out.println(manoACalcular.toString());
+                                System.out.println(manoACalcular.getArrayJugadas().toString());
+                                */
                             }
                             
                             
@@ -641,7 +808,7 @@ public class NewJFrame extends javax.swing.JFrame {
             {
                 for(int j = 0; j < 4; j++) //Palos1
                 {
-                    for(int k = 0 ; k < 4; k++) //Palo2
+                    for(int k = j ; k < 4; k++) //Palo2
                     {
                         if(j != k) //Los palos son distintos
                         {
@@ -679,8 +846,16 @@ public class NewJFrame extends javax.swing.JFrame {
                                 {
                                     System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
                                     System.arraycopy(manoRangos, 0, manoJunta, indiceMesa, indiceManoRangos);  
+                                 //Calcular
+                                Mano manoACalcular = new Mano(manoJunta, manoJunta.length);
+                                manoACalcular.evaluarMano();
+                                actualizarJugadas(manoACalcular.getArrayJugadas());
+                                
+                                System.out.println(manoACalcular.toString());
+                                //for(int i = 0; i < totalJugadas)
+                                System.out.println(manoACalcular.getArrayJugadas().toString());
                                 }
-                                else if(ok0)
+                                /*else if(ok0)
                                 {
                                     Carta[] carta0 = new Carta[1];
                                     carta0[0] = manoRangos[0];
@@ -700,6 +875,11 @@ public class NewJFrame extends javax.swing.JFrame {
                                 //Calcular
                                 Mano manoACalcular = new Mano(manoJunta, manoJunta.length);
                                 manoACalcular.evaluarMano();
+                                actualizarJugadas(manoACalcular.getArrayJugadas());
+                                
+                                System.out.println(manoACalcular.toString());
+                                //for(int i = 0; i < totalJugadas)
+                                System.out.println(manoACalcular.getArrayJugadas().toString());*/
                             }
                             
                             
@@ -916,6 +1096,21 @@ public class NewJFrame extends javax.swing.JFrame {
             
             mesa[traductor(cartas[i].charAt(0))][traductorPalos(cartas[i].charAt(1))].setBackground(Color.cyan);
         }
+    }
+
+    private void mostrarCombos() 
+    {
+        royalFlush.setText(Integer.toString(this.totalJugadas[9]));
+        straightFlush.setText(Integer.toString(this.totalJugadas[8]));
+        poker.setText(Integer.toString(this.totalJugadas[7]));
+        full.setText(Integer.toString(this.totalJugadas[6]));
+        flush.setText(Integer.toString(this.totalJugadas[5]));
+        straight.setText(Integer.toString(this.totalJugadas[4]));
+        trio.setText(Integer.toString(this.totalJugadas[3]));
+        twoPair.setText(Integer.toString(this.totalJugadas[2]));
+        pair.setText(Integer.toString(this.totalJugadas[1]));
+        cA.setText(Integer.toString(this.totalJugadas[0]));
+        
     }
 
 }
