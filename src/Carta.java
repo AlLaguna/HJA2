@@ -3,17 +3,29 @@ public class Carta implements Comparable<Carta>{
 
 	private int valor;
 	private char palo;
+        private boolean isMesa;
+        private int posicion;
 	
-	Carta(String cartaString) {
+	/*Carta(String cartaString, boolean isMesa, int posicion) {
 		
 		this.valor = parseValor(cartaString.charAt(0));
 		this.palo = cartaString.charAt(1);
+                this.isMesa = isMesa;
+                this.posicion = posicion;
+	}*/
+        
+        Carta(String cartaString) {
+		
+		this.valor = parseValor(cartaString.charAt(0));
+		this.palo = cartaString.charAt(1);
+                //this.isMesa = isMesa;
+                //this.posicion = posicion;
 	}
 	
-	public Carta(int valor, char palo) {		//Constructor
+	/*public Carta(int valor, char palo) {		//Constructor
 		this.valor = valor;
 		this.palo = palo;
-	}
+	}*/
 	
 	public int compareTo(Carta otraCarta)
         {
@@ -35,6 +47,16 @@ public class Carta implements Comparable<Carta>{
         public char getPalo()
         {
             return this.palo;
+        }
+        
+        public void setIsMesa(boolean isMesa)
+        {
+            this.isMesa = isMesa;
+        }
+        
+        public void setPosMesa(int posMesa)
+        {
+            this.posicion = posMesa;
         }
                     
 	private int parseValor(char valorChar) {		

@@ -38,6 +38,12 @@ public class Mano implements Comparable<Mano>
         }
     }
     
+    Mano(Carta[] cartas, int numCartas)
+    {
+        this.numCartas = numCartas;
+        this.mano = Arrays.copyOf(cartas, numCartas);
+    }
+    
     public void ordenar()
     {
         Arrays.sort(mano);
@@ -137,10 +143,25 @@ public class Mano implements Comparable<Mano>
 	        {
 	            getArrayJugadas()[1]++;
 	            
-	            if(posicionesJugadas[1] == -1) //Si ya hay una pareja se respeta el indice para la DoblePareja
-	            {
-	                posicionesJugadas[1] = i-1;
-	            }
+                    
+                    if (getArrayJugadas()[2] == 2) //Y no hay trio ==> FULL
+                    {    
+                        if(i < this.numCartas - 1 && this.mano[i+1].getValor() != this.mano[i].getValor())
+                        {
+                            getArrayJugadas()[2] = getArrayJugadas()[2] - 2;
+                            getArrayJugadas()[3]++;
+
+                            /*if (this.mano[i].getValor() <= valorJugadas[2]) {
+                                valorJugadas[3] = valorJugadas[2];
+                                valorJugadas[2] = this.mano[i].getValor();
+                            }*/
+                        }
+	    	    }
+	    	    else
+	    	    {
+	    	    	//valorJugadas[1] = this.mano[i].getValor();
+	    	    	//valorJugadas[2] = this.mano[i].getValor();
+	    	    }
 	            
 	            isCartaEmparejada[i] = true;
 	            isCartaEmparejada[i-1] = true;
@@ -260,7 +281,8 @@ public class Mano implements Comparable<Mano>
 	    }
 	        
 	    //Si hay 2 parejas ==> 1 doble pareja
-	    if (getArrayJugadas()[1] == 2) {
+	    if (getArrayJugadas()[1] == 2) 
+            { //Y no hay trio ==> FULL
 	        getArrayJugadas()[1] = getArrayJugadas()[1] - 2;
 	        getArrayJugadas()[2]++;
 	        

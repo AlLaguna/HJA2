@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.TextField;
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
+import java.util.HashSet;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -45,6 +47,20 @@ public class NewJFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         inputMesa = new javax.swing.JTextField();
         submitMesa = new javax.swing.JButton();
+        label1 = new java.awt.Label();
+        label2 = new java.awt.Label();
+        label3 = new java.awt.Label();
+        label4 = new java.awt.Label();
+        label5 = new java.awt.Label();
+        label6 = new java.awt.Label();
+        label7 = new java.awt.Label();
+        label8 = new java.awt.Label();
+        label9 = new java.awt.Label();
+        label10 = new java.awt.Label();
+        label11 = new java.awt.Label();
+        label12 = new java.awt.Label();
+        label13 = new java.awt.Label();
+        label14 = new java.awt.Label();
 
         jButton1.setText("jButton1");
 
@@ -92,6 +108,48 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(submitMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 670, -1, 30));
+
+        label1.setText("Straight flush");
+        getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 60, 90, 30));
+
+        label2.setText("Royal flush");
+        getContentPane().add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 30, 90, 30));
+
+        label3.setText("Full house");
+        getContentPane().add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 120, 90, 30));
+
+        label4.setText("4 of a kind");
+        getContentPane().add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 90, 90, 30));
+
+        label5.setText("Straight");
+        getContentPane().add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 180, 90, 30));
+
+        label6.setText("Flush");
+        getContentPane().add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 150, 90, 30));
+
+        label7.setText("2 pair");
+        getContentPane().add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 240, 90, -1));
+
+        label8.setText("3 of a kind");
+        getContentPane().add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 210, 90, -1));
+
+        label9.setText("No made hand");
+        getContentPane().add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 420, 90, -1));
+
+        label10.setText("Over pair");
+        getContentPane().add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 270, 90, -1));
+
+        label11.setText("Weak pair");
+        getContentPane().add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 360, 90, -1));
+
+        label12.setText("Top pair");
+        getContentPane().add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 300, 90, -1));
+
+        label13.setText("Middle pair");
+        getContentPane().add(label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 330, 90, -1));
+
+        label14.setText("High card");
+        getContentPane().add(label14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 390, 90, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,6 +217,20 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JSlider jSlider1;
+    private java.awt.Label label1;
+    private java.awt.Label label10;
+    private java.awt.Label label11;
+    private java.awt.Label label12;
+    private java.awt.Label label13;
+    private java.awt.Label label14;
+    private java.awt.Label label2;
+    private java.awt.Label label3;
+    private java.awt.Label label4;
+    private java.awt.Label label5;
+    private java.awt.Label label6;
+    private java.awt.Label label7;
+    private java.awt.Label label8;
+    private java.awt.Label label9;
     private javax.swing.JSlider slider;
     private javax.swing.JButton submitMesa;
     // End of variables declaration//GEN-END:variables
@@ -186,6 +258,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private String[] seleccionCombos = new String[169];
     int indiceSeleccion = 0;
     private static String [] ranking = {"AA","KK","AKs","QQ","AKo","JJ","AQs","TT","AQo","99","AJs","88","ATs","AJo","77","66","ATo","A9s","55","A8s","KQs","44","A9o","A7s","KJs","A5s","A8o","A6s","A4s","33","KTs","A7o","A3s","KQo","A2s","A5o","A6o","A4o","KJo","QJs","A3o","22","K9s","A2o","KTo","QTs","K8s","K7s","JTs","K9o","K6s","QJo","Q9s","K5s","K8o","K4s","QTo","K7o","K3s","K2s","Q8s","K6o","J9s","K5o","Q9o","JTo","K4o","Q7s","T9s","Q6s","K3o","J8s","Q5s","K2o","Q8o","Q4s","J9o","Q3s","T8s","J7s","Q7o","Q2s","Q6o","98s","Q5o","J8o","T9o","J6s","T7s","J5s","Q4o","J4s","J7o","Q3o","97s","T8o","J3s","T6s","Q2o","J2s","87s","J6o","98o","T7o","96s","J5o","T5s","T4s","86s","J4o","T6o","97o","T3s","76s","95s","J3o","T2s","87o","85s","96o","T5o","J2o","75s","94s","T4o","65s","86o","93s","84s","95o","T3o","76o","92s","74s","54s","T2o","85o","64s","83s","94o","75o","82s","73s","93o","65o","53s","63s","84o","92o","43s","74o","72s","54o","64o","52s","62s","83o","42s","82o","73o","53o","63o","32s","43o","72o","52o","62o","42o","32o"};
+    
+    private int numCombos = 0;
     /*
     
         if(fila = columna) NADA/PAREJAS -VERDE
@@ -352,13 +426,300 @@ public class NewJFrame extends javax.swing.JFrame {
         }
     }
     
+    public void calcularNumCombos()
+    {
+        /*
+            Parejas - 6 combos  -3
+            Suited - 4 combos   -1
+            OS  - 12 combos     -6
+        */
+        for(int i = 0; i < indiceSeleccion; i++)
+        {
+            if(seleccionCombos[i].contains("o"))
+            {
+                this.numCombos += 12;
+            }
+            else if(seleccionCombos[i].contains("s"))
+            {
+                this.numCombos += 4;
+            }
+            else
+            {
+                this.numCombos += 6;
+            }
+        }
+        
+        for(int i = 0; i < indiceMesa; i++)
+        {
+            for (int j = 0; j < indiceSeleccion; j++)
+            {
+                if(seleccionMesa[i].charAt(0) == seleccionCombos[j].charAt(0) || seleccionMesa[i].charAt(0) == seleccionCombos[j].charAt(1))
+                {
+                    if (seleccionCombos[j].contains("o")) 
+                    {
+                        this.numCombos -= 6;
+                    } 
+                    else if (seleccionCombos[j].contains("s")) 
+                    {
+                        this.numCombos -= 1;
+                    } 
+                    else 
+                    {
+                        this.numCombos -= 3;
+                    }
+                    break;
+                }
+            }   
+        }
+    }
+    
+    public void mostrarCombos()
+    {   
+        Carta[] manoMesa = new Carta[indiceMesa];
+        for(int i = 0; i < indiceMesa; i++)
+        {
+            manoMesa[i] = new Carta(seleccionMesa[i]);
+        }
+        
+        ////////////////////////////////////
+        Arrays.sort(manoMesa);
+        
+        for(int i = 0; i < indiceMesa; i++)
+        {
+            manoMesa[i].setIsMesa(true);
+            manoMesa[i].setPosMesa(i);   
+        }
+        
+        Carta[] manoRangos = new Carta[2];
+        
+        /*
+                AK -  2cartas
+        
+        */
+        
+        for(int i = 0; i < indiceSeleccion; i++)
+        {
+            /*if(seleccionCombos[i].contains("o"))
+            {          
+                for(int j = 0; j < 4; j++) //Palos1
+                {
+                    for(int k = 0 ; k < 4; k++) //Palo2
+                    {
+                        if(j != k) //Los palos son distintos
+                        {
+                            manoRangos[0] = new Carta(seleccionCombos[i].charAt(0) + palos[j]);
+                            manoRangos[1] = new Carta(seleccionCombos[i].charAt(1) + palos[k]);
+                            boolean ok0 = true;
+                            boolean ok1 = true;
+                            int indiceManoRangos = 2;
+                            int l = 0;
+                            
+                            while(l < indiceMesa && (ok0 || ok1))
+                            {
+                                if(manoRangos[0].getValor() == manoMesa[l].getValor() && manoRangos[0].getPalo() == manoMesa[l].getPalo())
+                                {
+                                    ok0 = false;
+                                    indiceManoRangos--;
+                                }
+                                
+                                if(manoRangos[1].getValor() == manoMesa[l].getValor() && manoRangos[01].getPalo() == manoMesa[l].getPalo())
+                                {
+                                    ok1 = false;
+                                    indiceManoRangos--;
+                                }    
+                                
+                                l++;
+                            }
+                            
+                            if(indiceManoRangos != 0)
+                            {                           
+                                Carta[] manoJunta = new Carta[indiceMesa + indiceManoRangos];
+                            
+                                if(ok0 && ok1)
+                                {
+                                    System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
+                                    System.arraycopy(manoRangos, 0, manoJunta, indiceMesa, indiceManoRangos);  
+                                }
+                                else if(ok0)
+                                {
+                                    Carta[] carta0 = new Carta[1];
+                                    carta0[0] = manoRangos[0];
+                                    
+                                    System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
+                                    System.arraycopy(carta0, 0, manoJunta, indiceMesa, 1);  
+                                }
+                                else if(ok1)
+                                {
+                                    Carta[] carta1 = new Carta[1];
+                                    carta1[0] = manoRangos[1];
+                                    
+                                    System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
+                                    System.arraycopy(carta1, 0, manoJunta, indiceMesa, 1);  
+                                }
+                            
+                                //Calcular
+                                Mano manoACalcular = new Mano(manoJunta, manoJunta.length);
+                                manoACalcular.evaluarMano();
+                            }
+                            
+                            
+                        }
+                    }
+                }
+            }*/
+            if(seleccionCombos[i].contains("s"))
+            {
+                for(int j = 0; j < 4; j++) //Palos1
+                {
+                    for(int k = 0 ; k < 4; k++) //Palo2
+                    {
+                        if(j == k) //Los palos son iguales
+                        {
+                            manoRangos[0] = new Carta(seleccionCombos[i].charAt(0) + palos[j]);
+                            manoRangos[0].setIsMesa(false);
+                            manoRangos[1] = new Carta(seleccionCombos[i].charAt(1) + palos[k]);
+                            manoRangos[1].setIsMesa(false);
+                            boolean ok0 = true;
+                            boolean ok1 = true;
+                            int indiceManoRangos = 2;
+                            int l = 0;
+                            
+                            while(l < indiceMesa && (ok0 || ok1))
+                            {
+                                if(manoRangos[0].getValor() == manoMesa[l].getValor() && manoRangos[0].getPalo() == manoMesa[l].getPalo())
+                                {
+                                    ok0 = false;
+                                    indiceManoRangos--;
+                                }
+                                
+                                if(manoRangos[1].getValor() == manoMesa[l].getValor() && manoRangos[01].getPalo() == manoMesa[l].getPalo())
+                                {
+                                    ok1 = false;
+                                    indiceManoRangos--;
+                                }    
+                                
+                                l++;
+                            }
+                            
+                            if(indiceManoRangos != 0)
+                            {                           
+                                Carta[] manoJunta = new Carta[indiceMesa + indiceManoRangos];
+                            
+                                if(ok0 && ok1)
+                                {
+                                    System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
+                                    System.arraycopy(manoRangos, 0, manoJunta, indiceMesa, indiceManoRangos);  
+                                }
+                                else if(ok0)
+                                {
+                                    Carta[] carta0 = new Carta[1];
+                                    carta0[0] = manoRangos[0];
+                                    
+                                    System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
+                                    System.arraycopy(carta0, 0, manoJunta, indiceMesa, 1);  
+                                }
+                                else if(ok1)
+                                {
+                                    Carta[] carta1 = new Carta[1];
+                                    carta1[0] = manoRangos[1];
+                                    
+                                    System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
+                                    System.arraycopy(carta1, 0, manoJunta, indiceMesa, 1);  
+                                }
+                            
+                                //Calcular
+                                Mano manoACalcular = new Mano(manoJunta, manoJunta.length);
+                                manoACalcular.evaluarMano();
+                            }
+                            
+                            
+                        }
+                    }
+                }
+            }
+            else //Offsuites y parejas
+            {
+                for(int j = 0; j < 4; j++) //Palos1
+                {
+                    for(int k = 0 ; k < 4; k++) //Palo2
+                    {
+                        if(j != k) //Los palos son distintos
+                        {
+                            manoRangos[0] = new Carta(seleccionCombos[i].charAt(0) + palos[j]);
+                            manoRangos[0].setIsMesa(false);
+                            manoRangos[1] = new Carta(seleccionCombos[i].charAt(1) + palos[k]);
+                            manoRangos[1].setIsMesa(false);
+                            boolean ok0 = true;
+                            boolean ok1 = true;
+                            int indiceManoRangos = 2;
+                            int l = 0;
+                            
+                            while(l < indiceMesa && (ok0 || ok1))
+                            {
+                                if(manoRangos[0].getValor() == manoMesa[l].getValor() && manoRangos[0].getPalo() == manoMesa[l].getPalo())
+                                {
+                                    ok0 = false;
+                                    indiceManoRangos--;
+                                }
+                                
+                                if(manoRangos[1].getValor() == manoMesa[l].getValor() && manoRangos[01].getPalo() == manoMesa[l].getPalo())
+                                {
+                                    ok1 = false;
+                                    indiceManoRangos--;
+                                }    
+                                
+                                l++;
+                            }
+                            
+                            if(indiceManoRangos != 0)
+                            {                           
+                                Carta[] manoJunta = new Carta[indiceMesa + indiceManoRangos];
+                            
+                                if(ok0 && ok1)
+                                {
+                                    System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
+                                    System.arraycopy(manoRangos, 0, manoJunta, indiceMesa, indiceManoRangos);  
+                                }
+                                else if(ok0)
+                                {
+                                    Carta[] carta0 = new Carta[1];
+                                    carta0[0] = manoRangos[0];
+                                    
+                                    System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
+                                    System.arraycopy(carta0, 0, manoJunta, indiceMesa, 1);  
+                                }
+                                else if(ok1)
+                                {
+                                    Carta[] carta1 = new Carta[1];
+                                    carta1[0] = manoRangos[1];
+                                    
+                                    System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
+                                    System.arraycopy(carta1, 0, manoJunta, indiceMesa, 1);  
+                                }
+                            
+                                //Calcular
+                                Mano manoACalcular = new Mano(manoJunta, manoJunta.length);
+                                manoACalcular.evaluarMano();
+                            }
+                            
+                            
+                        }
+                    }
+                }
+            }
+            
+            
+        }
+        
+    }
+    
     public void setupGUI()
     {
         textoPorcentaje.setText(String.valueOf(slider.getValue() + "%"));
         
         this.setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1080,1080);
+        this.setSize(1350,1080);
         
         inputRangos.setBounds(OFFSET, SEPARACION*LADO + OFFSET *2, 400, 30);
         this.add(inputRangos);
