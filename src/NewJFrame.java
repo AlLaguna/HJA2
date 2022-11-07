@@ -673,6 +673,9 @@ public class NewJFrame extends javax.swing.JFrame {
                             int indiceManoRangos = 2;
                             int l = 0;
                             
+                            
+                           
+                              
                             while(l < indiceMesa && (ok0 || ok1))
                             {
                                 if(manoRangos[0].getValor() == manoMesa[l].getValor() && manoRangos[0].getPalo() == manoMesa[l].getPalo())
@@ -700,10 +703,15 @@ public class NewJFrame extends javax.swing.JFrame {
                                     System.arraycopy(manoRangos, 0, manoJunta, indiceMesa, indiceManoRangos);  
                                 //Calcular
                                 Mano manoACalcular = new Mano(manoJunta, manoJunta.length);
+                                
+                               
+                                
                                 manoACalcular.evaluarMano();
                                 actualizarJugadas(manoACalcular, manoACalcular.getArrayJugadas());
                                 
                                 System.out.println(manoACalcular.toString());
+                                System.out.println(manoRangos[0].toString());
+                                System.out.println(manoRangos[1].toString());
                                 //System.out.println(manoACalcular.mostrarJugada());
                                 }         
                             }
@@ -713,7 +721,68 @@ public class NewJFrame extends javax.swing.JFrame {
                     }
                 }
             }
-            else //Offsuites y parejas
+            else if(seleccionCombos[i].contains("o")) //Offsuites y parejas
+            {
+                for(int j = 0; j < 4; j++) //Palos1
+                {
+                    for(int k = 0 ; k < 4; k++) //Palo2
+                    {
+                        if(j != k) //Los palos son distintos
+                        {
+                            manoRangos[0] = new Carta(seleccionCombos[i].charAt(0) + palos[j]);
+                            manoRangos[0].setIsMesa(false);
+                            manoRangos[1] = new Carta(seleccionCombos[i].charAt(1) + palos[k]);
+                            manoRangos[1].setIsMesa(false);
+                            boolean ok0 = true;
+                            boolean ok1 = true;
+                            int indiceManoRangos = 2;
+                            int l = 0;
+                            
+                            while(l < indiceMesa && (ok0 || ok1))
+                            {
+                                if(manoRangos[0].getValor() == manoMesa[l].getValor() && manoRangos[0].getPalo() == manoMesa[l].getPalo())
+                                {
+                                    ok0 = false;
+                                    indiceManoRangos--;
+                                }
+                                
+                                if(manoRangos[1].getValor() == manoMesa[l].getValor() && manoRangos[01].getPalo() == manoMesa[l].getPalo())
+                                {
+                                    ok1 = false;
+                                    indiceManoRangos--;
+                                }    
+                                
+                                l++;
+                            }
+                            
+                            if(indiceManoRangos != 0)
+                            {                           
+                                Carta[] manoJunta = new Carta[indiceMesa + indiceManoRangos];
+                            
+                                if(ok0 && ok1)
+                                {
+                                    System.arraycopy(manoMesa, 0, manoJunta, 0, indiceMesa);  
+                                    System.arraycopy(manoRangos, 0, manoJunta, indiceMesa, indiceManoRangos);  
+                                 //Calcular
+                                Mano manoACalcular = new Mano(manoJunta, manoJunta.length);
+                                manoACalcular.evaluarMano();
+                                actualizarJugadas(manoACalcular, manoACalcular.getArrayJugadas());
+                                
+                                //System.out.println(manoACalcular.toString());
+                                //System.out.println(manoACalcular.mostrarJugada());
+                                System.out.println(manoACalcular.toString());
+                                System.out.println(manoRangos[0].toString());
+                                System.out.println(manoRangos[1].toString());
+
+                                }
+                            }
+                            
+                            
+                        }
+                    }
+                }
+            }
+            else
             {
                 for(int j = 0; j < 4; j++) //Palos1
                 {
@@ -760,8 +829,11 @@ public class NewJFrame extends javax.swing.JFrame {
                                 manoACalcular.evaluarMano();
                                 actualizarJugadas(manoACalcular, manoACalcular.getArrayJugadas());
                                 
-                                System.out.println(manoACalcular.toString());
+                                //System.out.println(manoACalcular.toString());
                                 //System.out.println(manoACalcular.mostrarJugada());
+                                System.out.println(manoACalcular.toString());
+                                System.out.println(manoRangos[0].toString());
+                                System.out.println(manoRangos[1].toString());
 
                                 }
                             }
