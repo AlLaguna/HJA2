@@ -623,5 +623,8 @@ public class Mano implements Comparable<Mano>
 		this.arrayJugadas = arrayJugadas;
 	}
 	
-	
+	public Carta[] getMano()
+        {
+            return this.mano;
+        }
 }

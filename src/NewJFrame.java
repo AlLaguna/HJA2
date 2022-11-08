@@ -69,12 +69,12 @@ public class NewJFrame extends javax.swing.JFrame {
         flush = new java.awt.Label();
         twoPair = new java.awt.Label();
         trio = new java.awt.Label();
-        none = new java.awt.Label();
-        pair = new java.awt.Label();
-        label25 = new java.awt.Label();
-        label26 = new java.awt.Label();
-        label27 = new java.awt.Label();
-        cA = new java.awt.Label();
+        CA = new java.awt.Label();
+        OP = new java.awt.Label();
+        MP = new java.awt.Label();
+        TP = new java.awt.Label();
+        PP = new java.awt.Label();
+        WP = new java.awt.Label();
         label29 = new java.awt.Label();
         totalCombos = new java.awt.Label();
         botonCombos = new java.awt.Button();
@@ -163,11 +163,11 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 420, 90, 30));
 
         label10.setBackground(new java.awt.Color(150, 242, 242));
-        label10.setText("(Over) pair");
+        label10.setText("Over pair");
         getContentPane().add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 270, 90, 30));
 
         label11.setBackground(new java.awt.Color(150, 242, 242));
-        label11.setText("Weak pair");
+        label11.setText("Middle pair");
         getContentPane().add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 360, 90, 30));
 
         label12.setBackground(new java.awt.Color(150, 242, 242));
@@ -175,11 +175,11 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 300, 90, 30));
 
         label13.setBackground(new java.awt.Color(150, 242, 242));
-        label13.setText("Middle pair");
+        label13.setText("Pocket pair");
         getContentPane().add(label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 330, 90, 30));
 
         labelCA.setBackground(new java.awt.Color(150, 242, 242));
-        labelCA.setText("High card");
+        labelCA.setText("Weak pair");
         getContentPane().add(labelCA, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 390, 90, 30));
 
         straightFlush.setBackground(new java.awt.Color(242, 200, 242));
@@ -214,29 +214,29 @@ public class NewJFrame extends javax.swing.JFrame {
         trio.setText("0");
         getContentPane().add(trio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 210, 40, 30));
 
-        none.setBackground(new java.awt.Color(242, 200, 242));
-        none.setText("0");
-        getContentPane().add(none, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 420, 40, 30));
+        CA.setBackground(new java.awt.Color(242, 200, 242));
+        CA.setText("0");
+        getContentPane().add(CA, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 420, 40, 30));
 
-        pair.setBackground(new java.awt.Color(242, 200, 242));
-        pair.setText("0");
-        getContentPane().add(pair, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 270, 40, 30));
+        OP.setBackground(new java.awt.Color(242, 200, 242));
+        OP.setText("0");
+        getContentPane().add(OP, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 270, 40, 30));
 
-        label25.setBackground(new java.awt.Color(242, 200, 242));
-        label25.setText("0");
-        getContentPane().add(label25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 360, 40, 30));
+        MP.setBackground(new java.awt.Color(242, 200, 242));
+        MP.setText("0");
+        getContentPane().add(MP, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 360, 40, 30));
 
-        label26.setBackground(new java.awt.Color(242, 200, 242));
-        label26.setText("0");
-        getContentPane().add(label26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 300, 40, 30));
+        TP.setBackground(new java.awt.Color(242, 200, 242));
+        TP.setText("0");
+        getContentPane().add(TP, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 300, 40, 30));
 
-        label27.setBackground(new java.awt.Color(242, 200, 242));
-        label27.setText("0");
-        getContentPane().add(label27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 330, 40, 30));
+        PP.setBackground(new java.awt.Color(242, 200, 242));
+        PP.setText("0");
+        getContentPane().add(PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 330, 40, 30));
 
-        cA.setBackground(new java.awt.Color(242, 200, 242));
-        cA.setText("0");
-        getContentPane().add(cA, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 390, 40, 30));
+        WP.setBackground(new java.awt.Color(242, 200, 242));
+        WP.setText("0");
+        getContentPane().add(WP, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 390, 40, 30));
 
         label29.setBackground(new java.awt.Color(150, 252, 252));
         label29.setText("Total Combos");
@@ -282,10 +282,15 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void botonCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCombosActionPerformed
         
-        calcularCombos();
+        if(!isCombosGenerados)
+        {
+            calcularCombos();
         
-        mostrarCombos();
-        calcularNumCombos();
+            mostrarCombos();
+            calcularNumCombos();
+            
+            isCombosGenerados = true;
+        }
     }//GEN-LAST:event_botonCombosActionPerformed
 
     /**
@@ -324,9 +329,14 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Label CA;
+    private java.awt.Label MP;
+    private java.awt.Label OP;
+    private java.awt.Label PP;
+    private java.awt.Label TP;
+    private java.awt.Label WP;
     private java.awt.Button botonCombos;
     private javax.swing.JButton botonRangos;
-    private java.awt.Label cA;
     private java.awt.Label flush;
     private java.awt.Label full;
     private javax.swing.JTextField inputMesa;
@@ -339,9 +349,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private java.awt.Label label12;
     private java.awt.Label label13;
     private java.awt.Label label2;
-    private java.awt.Label label25;
-    private java.awt.Label label26;
-    private java.awt.Label label27;
     private java.awt.Label label29;
     private java.awt.Label label3;
     private java.awt.Label label4;
@@ -351,8 +358,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private java.awt.Label label8;
     private java.awt.Label label9;
     private java.awt.Label labelCA;
-    private java.awt.Label none;
-    private java.awt.Label pair;
     private java.awt.Label poker;
     private java.awt.Label royalFlush;
     private javax.swing.JSlider slider;
@@ -382,16 +387,40 @@ public class NewJFrame extends javax.swing.JFrame {
     private static final String[] palos = {"h", "c", "d", "s"};
     
     private String[] seleccionMesa = new String[52];
-    int indiceMesa = 0;
+    private int indiceMesa = 0;
+    
+    public int[] topMesa = {0,0};
     
     private String[] seleccionCombos = new String[169];
     int indiceSeleccion = 0;
     private static String [] ranking = {"AA","KK","AKs","QQ","AKo","JJ","AQs","TT","AQo","99","AJs","88","ATs","AJo","77","66","ATo","A9s","55","A8s","KQs","44","A9o","A7s","KJs","A5s","A8o","A6s","A4s","33","KTs","A7o","A3s","KQo","A2s","A5o","A6o","A4o","KJo","QJs","A3o","22","K9s","A2o","KTo","QTs","K8s","K7s","JTs","K9o","K6s","QJo","Q9s","K5s","K8o","K4s","QTo","K7o","K3s","K2s","Q8s","K6o","J9s","K5o","Q9o","JTo","K4o","Q7s","T9s","Q6s","K3o","J8s","Q5s","K2o","Q8o","Q4s","J9o","Q3s","T8s","J7s","Q7o","Q2s","Q6o","98s","Q5o","J8o","T9o","J6s","T7s","J5s","Q4o","J4s","J7o","Q3o","97s","T8o","J3s","T6s","Q2o","J2s","87s","J6o","98o","T7o","96s","J5o","T5s","T4s","86s","J4o","T6o","97o","T3s","76s","95s","J3o","T2s","87o","85s","96o","T5o","J2o","75s","94s","T4o","65s","86o","93s","84s","95o","T3o","76o","92s","74s","54s","T2o","85o","64s","83s","94o","75o","82s","73s","93o","65o","53s","63s","84o","92o","43s","74o","72s","54o","64o","52s","62s","83o","42s","82o","73o","53o","63o","32s","43o","72o","52o","62o","42o","32o"};
     
     private int[] totalJugadas = {0,0,0,0,0,0,0,0,0,0};
-    private int[] jugadasMesa = {0,0,0,0,0,0,0,0,0,0};
     
+    //                                   0   1   2   3  4
+    //                                   OP, TP, PP, MP WP
+    private int[] totalJugadasParejas = { 0, 0,  0,  0, 0};
+    
+    private int[] jugadasMesa =  {0,0,0,0,0,0,0,0,0,0};
+    private boolean isCombosGenerados = false;
     private int numCombos = 0;
+    
+    /*
+    
+    //Aumentar tamaño array jugadas (+5)
+
+    //Calcular 1era y 2nda carta mas alta del board | calcularCombos() topMesa
+
+    //En los bucles de debajo
+    //overpair (pareja	en	mano	mejor	que	la	carta	mas	alta	del	board)  PM > 1CA	
+    //top pair (pareja	con	la	carta	mas	alta	del	board)  PM(1CA,X)
+    //pocket	pair	below	top	pair (pareja	en	mano	con	 cartas	menores	 que	la	mas	alta	 del	 board	 pero	 que	 no	es	 débil) PM < 1CA
+    //middle	pair (pareja con	 la	 segunda	 carta	 mas	 alta	 del	 board)	 PM(2CA,X)
+    //weak	 pair (otras	 parejas) 
+    
+    */
+    
+    
     /*
     
         if(fila = columna) NADA/PAREJAS -VERDE
@@ -426,10 +455,48 @@ public class NewJFrame extends javax.swing.JFrame {
         {
             if(jugadas[i] != 0 && mano.noSeaMesa(i))
             {
-                this.totalJugadas[i] += jugadas[i];
-                //if(i != 0){
-                //this.totalJugadas[i] -= jugadasMesa[i];}
-                break;
+                if(i != 1) //No es una pareja
+                {
+                    this.totalJugadas[i] += jugadas[i];
+                    //if(i != 0){
+                    //this.totalJugadas[i] -= jugadasMesa[i];}
+                    break;
+                }
+                else //Tipo pareja
+                {
+//                  0   1   2   3  4
+//                  OP, TP, PP, MP WP
+//                  totalJugadasParejas
+
+                    if(mano.getMano()[mano.posicionesJugadas[1]].getValor() > topMesa[0]) 
+                    {
+                        //overpair [PM > 1CA] (pareja en mano mejor que la carta mas alta del board)  00
+                        totalJugadasParejas[0]++;
+                    }
+                    else if((mano.getMano()[mano.posicionesJugadas[1]].isMesa && mano.getMano()[mano.posicionesJugadas[1]].getValor() == topMesa[0] )|| (mano.getMano()[mano.posicionesJugadas[1]+1].isMesa && mano.getMano()[mano.posicionesJugadas[1]+1].getValor() == topMesa[0]))  
+                    {
+                        //top pair [PM(1CA,X)] pareja con la carta mas alta del board) 00
+                        totalJugadasParejas[1]++;
+                    }
+                    else if((mano.getMano()[mano.posicionesJugadas[1]].isMesa && mano.getMano()[mano.posicionesJugadas[1]].getValor() == topMesa[1] )|| (mano.getMano()[mano.posicionesJugadas[1]+1].isMesa && mano.getMano()[mano.posicionesJugadas[1]+1].getValor() == topMesa[1])) 
+                    {
+                        //middle pair [PM(2CA,X)] (pareja con la segunda carta mas alta del board)
+                        totalJugadasParejas[3]++;
+                    }
+                    else if(!mano.getMano()[mano.posicionesJugadas[1]].isMesa && !mano.getMano()[mano.posicionesJugadas[1]+1].isMesa && mano.getMano()[mano.posicionesJugadas[1]].getValor() < topMesa[0] && mano.getMano()[mano.posicionesJugadas[1]].getValor() > topMesa[1]) 
+                    {
+                        //pocket pair below top pair [PM < 1CA] (pareja en mano con  cartas menores que la mas alta del board pero que no es débil) 
+                        totalJugadasParejas[2]++;
+                    }
+                    else
+                    {
+                        //weak pair (otras parejas) 
+                        totalJugadasParejas[4]++;
+                    }
+                    
+                    break;
+
+                }
             }
         }  
             
@@ -594,6 +661,8 @@ public class NewJFrame extends javax.swing.JFrame {
         inputRangos.setText("");
         inputMesa.setText("");
         
+        isCombosGenerados = false;
+        
          for(int i = 0; i < 13; i++)
         {
             for(int j = 0; j < 4; j++)
@@ -610,11 +679,26 @@ public class NewJFrame extends javax.swing.JFrame {
         straight.setText("0");
         trio.setText("0");
         twoPair.setText("0");
-        pair.setText("0");
-        cA.setText("0");
+        CA.setText("0");
+        
+        //Parejas
+        OP.setText("0");
+        TP.setText("0");
+        PP.setText("0");
+        MP.setText("0");
+        WP.setText("0");
+
         
         int[] arrayVacio = {0,0,0,0,0,0,0,0,0,0};
+        topMesa[0] = 0;
+        topMesa[1] = 0;
         totalJugadas = Arrays.copyOf(arrayVacio, arrayVacio.length);
+        totalJugadasParejas[0] = 0;
+        totalJugadasParejas[1] = 0;
+        totalJugadasParejas[2] = 0;
+        totalJugadasParejas[3] = 0;
+        totalJugadasParejas[4] = 0;
+        
         jugadasMesa = Arrays.copyOf(arrayVacio, arrayVacio.length);
         totalCombos.setText("0");
         numCombos = 0;
@@ -627,7 +711,11 @@ public class NewJFrame extends javax.swing.JFrame {
         {
             this.numCombos += this.totalJugadas[i];
         }
-        totalCombos.setText(Integer.toString(this.numCombos));
+        for(int i = 0; i < this.totalJugadasParejas.length; i++)
+        {
+            this.numCombos += this.totalJugadasParejas[i];
+        }
+        totalCombos.setText(Integer.toString(this.numCombos - this.totalJugadas[1]));
     }
     
     public void calcularCombos()
@@ -636,7 +724,21 @@ public class NewJFrame extends javax.swing.JFrame {
         for(int i = 0; i < indiceMesa; i++)
         {
             manoMesa[i] = new Carta(seleccionMesa[i]);
+            
+            //Calcular top1 y top2
+            if(manoMesa[i].getValor() > topMesa[0])
+            {
+                topMesa[1] = topMesa[0];
+                topMesa[0] = manoMesa[i].getValor();
+            }
+            else if(manoMesa[i].getValor() > topMesa[1])
+            {
+                topMesa[1] = manoMesa[i].getValor();
+            }
         }
+        
+        
+        
         
         Mano mesa = new Mano(manoMesa, indiceMesa); 
         mesa.evaluarMano();
@@ -672,10 +774,7 @@ public class NewJFrame extends javax.swing.JFrame {
                             boolean ok1 = true;
                             int indiceManoRangos = 2;
                             int l = 0;
-                            
-                            
-                           
-                              
+                             
                             while(l < indiceMesa && (ok0 || ok1))
                             {
                                 if(manoRangos[0].getValor() == manoMesa[l].getValor() && manoRangos[0].getPalo() == manoMesa[l].getPalo())
@@ -710,8 +809,8 @@ public class NewJFrame extends javax.swing.JFrame {
                                 actualizarJugadas(manoACalcular, manoACalcular.getArrayJugadas());
                                 
                                 System.out.println(manoACalcular.toString());
-                                System.out.println(manoRangos[0].toString());
-                                System.out.println(manoRangos[1].toString());
+                                System.out.println(manoRangos[0].toString() + " " + manoRangos[1].toString());
+                                System.out.println(this.totalJugadas[0]);
                                 //System.out.println(manoACalcular.mostrarJugada());
                                 }         
                             }
@@ -768,11 +867,9 @@ public class NewJFrame extends javax.swing.JFrame {
                                 manoACalcular.evaluarMano();
                                 actualizarJugadas(manoACalcular, manoACalcular.getArrayJugadas());
                                 
-                                //System.out.println(manoACalcular.toString());
-                                //System.out.println(manoACalcular.mostrarJugada());
                                 System.out.println(manoACalcular.toString());
-                                System.out.println(manoRangos[0].toString());
-                                System.out.println(manoRangos[1].toString());
+                                System.out.println(manoRangos[0].toString() + " " + manoRangos[1].toString());
+                                System.out.println(this.totalJugadas[0]);
 
                                 }
                             }
@@ -829,12 +926,9 @@ public class NewJFrame extends javax.swing.JFrame {
                                 manoACalcular.evaluarMano();
                                 actualizarJugadas(manoACalcular, manoACalcular.getArrayJugadas());
                                 
-                                //System.out.println(manoACalcular.toString());
-                                //System.out.println(manoACalcular.mostrarJugada());
-                                System.out.println(manoACalcular.toString());
-                                System.out.println(manoRangos[0].toString());
-                                System.out.println(manoRangos[1].toString());
-
+                               System.out.println(manoACalcular.toString());
+                                System.out.println(manoRangos[0].toString() + " " + manoRangos[1].toString());
+                                System.out.println(this.totalJugadas[0]);
                                 }
                             }
                             
@@ -1077,8 +1171,14 @@ public class NewJFrame extends javax.swing.JFrame {
         straight.setText(Integer.toString(this.totalJugadas[4]));
         trio.setText(Integer.toString(this.totalJugadas[3]));
         twoPair.setText(Integer.toString(this.totalJugadas[2]));
-        pair.setText(Integer.toString(this.totalJugadas[1]));
-        cA.setText(Integer.toString(this.totalJugadas[0]));
+        CA.setText(Integer.toString(this.totalJugadas[0]));
+        
+        //Parejas
+        OP.setText(Integer.toString(this.totalJugadasParejas[0]));
+        TP.setText(Integer.toString(this.totalJugadasParejas[1]));
+        PP.setText(Integer.toString(this.totalJugadasParejas[2]));
+        MP.setText(Integer.toString(this.totalJugadasParejas[3]));
+        WP.setText(Integer.toString(this.totalJugadasParejas[4]));
         
     }
 

@@ -221,7 +221,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f2" green="f2" red="96" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="(Over) pair"/>
+        <Property name="text" type="java.lang.String" value="Over pair"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -234,7 +234,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f2" green="f2" red="96" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Weak pair"/>
+        <Property name="text" type="java.lang.String" value="Middle pair"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -260,7 +260,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f2" green="f2" red="96" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Middle pair"/>
+        <Property name="text" type="java.lang.String" value="Pocket pair"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -273,7 +273,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f2" green="f2" red="96" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="High card"/>
+        <Property name="text" type="java.lang.String" value="Weak pair"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -385,7 +385,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="java.awt.Label" name="none">
+    <Component class="java.awt.Label" name="CA">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f2" green="c8" red="f2" type="rgb"/>
@@ -398,7 +398,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="java.awt.Label" name="pair">
+    <Component class="java.awt.Label" name="OP">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f2" green="c8" red="f2" type="rgb"/>
@@ -411,7 +411,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="java.awt.Label" name="label25">
+    <Component class="java.awt.Label" name="MP">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f2" green="c8" red="f2" type="rgb"/>
@@ -424,7 +424,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="java.awt.Label" name="label26">
+    <Component class="java.awt.Label" name="TP">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f2" green="c8" red="f2" type="rgb"/>
@@ -437,7 +437,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="java.awt.Label" name="label27">
+    <Component class="java.awt.Label" name="PP">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f2" green="c8" red="f2" type="rgb"/>
@@ -450,7 +450,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="java.awt.Label" name="cA">
+    <Component class="java.awt.Label" name="WP">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f2" green="c8" red="f2" type="rgb"/>
